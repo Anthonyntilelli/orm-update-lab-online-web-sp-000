@@ -52,11 +52,7 @@ class Student
     DB[:conn].execute(sql, self.name, self.grade, self.id)
   end
 
-  def self.new_from_db(id)
-    sql = <<-SQL
-    SELECT * FROM students WHERE id == ?;
-    SQL
-    row = DB[:conn].execute(sql, id)
+  def self.new_from_db(row)
     Students.new(row[1], row[2],row[0])
   end
 
