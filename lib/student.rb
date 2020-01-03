@@ -60,8 +60,8 @@ class Student
     sql = <<-SQL
       SELECT * FROM students WHERE name == ?;
     SQL
-    row = DB[:conn].execute(sql, id)
-
+    row = DB[:conn].execute(sql, name)
+  end
 
   # Remember, you can access your database connection anywhere in this class
   #  with DB[:conn]
