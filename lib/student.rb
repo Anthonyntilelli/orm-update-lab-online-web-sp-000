@@ -53,11 +53,11 @@ class Student
   end
 
   def self.new_from_db(id)
+    Students.new(row[1], row[2],row[0])
     sql = <<-SQL
     SELECT * FROM students WHERE id == ?;
     SQL
     row = DB[:conn].execute(sql, id)
-    Students.new(row[1], row[2],row[0])
   end
 
 
