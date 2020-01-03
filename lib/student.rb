@@ -63,7 +63,8 @@ class Student
       SELECT * FROM students WHERE name == ?;
     SQL
     row = DB[:conn].execute(sql, name)
-    Student.new_from_db(row)
+    value = Student.new_from_db(row)
+    binding.pry
   end
 
   # Remember, you can access your database connection anywhere in this class
